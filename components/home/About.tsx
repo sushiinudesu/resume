@@ -16,9 +16,9 @@ export default function About() {
   const age = useAge(new Date(1994, 9, 31));
 
   const aboutItems = [
-    { label: t('location'), value: t('locationValue'), icon: 'location', flag: <BY title="Belarus" style={{ width: '20px', height: '15px', marginLeft: '8px' }} /> },
+    { label: t('location'), value: t('locationValue'), icon: 'location', flag: <BY title="Belarus" className="w-5 h-[15px] ml-2" /> },
     { label: t('age'), value: age, icon: 'age' },
-    { label: t('nationality'), value: t('nationalityValue'), icon: 'nationality', flag: <BY title="Belarus" style={{ width: '20px', height: '15px', marginLeft: '8px' }} /> },
+    { label: t('nationality'), value: t('nationalityValue'), icon: 'nationality', flag: <BY title="Belarus" className="w-5 h-[15px] ml-2" /> },
     { label: t('gender'), value: t('genderValue'), icon: 'gender' }
   ];
 
