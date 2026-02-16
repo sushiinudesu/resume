@@ -9,7 +9,7 @@ export default function Preview() {
         <h1 className="text-5xl font-bold leading-tight tracking-tight text-black dark:text-zinc-50">
           {t('title')}
         </h1>
-        <p className="max-w-2xl text-xl leading-8 text-zinc-600 dark:text-zinc-400">
+        <p className="max-w-2xl text-xl leading-8 text-zinc-600 dark:text-zinc-300 whitespace-pre-line mt-6">
           {t('description')}
         </p>
       </div>
