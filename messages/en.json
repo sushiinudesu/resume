@@ -23,7 +23,14 @@
   },
   "Skills": {
     "title": "Skills",
-    "description": "Add your skills here. List your technical abilities, tools, and technologies you work with."
+    "description": "Add your skills here. List your technical abilities, tools, and technologies you work with.",
+    "majorSkills": "Major Skills",
+    "minorSkills": "Minor Skills",
+    "interestedSkills": "Interested In",
+    "year": "year",
+    "years": "years",
+    "loading": "Loading skills...",
+    "error": "Failed to load skills"
   },
   "Portfolio": {
     "title": "Portfolio",
