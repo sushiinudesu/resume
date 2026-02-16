@@ -1,0 +1,28 @@
+{
+  "Header": {
+    "about": "About",
+    "skills": "Skills",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "Preview": {
+    "title": "Welcome to My Portfolio",
+    "description": "I'm a passionate developer creating amazing web experiences. Scroll down to learn more about me and my work."
+  },
+  "About": {
+    "title": "About Me",
+    "description": "Add your about information here. Share your background, experience, and what drives you as a developer."
+  },
+  "Skills": {
+    "title": "Skills",
+    "description": "Add your skills here. List your technical abilities, tools, and technologies you work with."
+  },
+  "Portfolio": {
+    "title": "Portfolio",
+    "description": "Showcase your projects here. Add descriptions, images, and links to your best work."
+  },
+  "Contact": {
+    "title": "Contact",
+    "description": "Add your contact information here. Include ways for people to reach out to you."
+  }
+}
