@@ -11,7 +11,15 @@
   },
   "About": {
     "title": "About Me",
-    "description": "Add your about information here. Share your background, experience, and what drives you as a developer."
+    "location": "Location",
+    "locationValue": "Minsk, Belarus",
+    "age": "Age",
+    "nationality": "Nationality",
+    "nationalityValue": "Belarus",
+    "gender": "Gender",
+    "genderValue": "Male",
+    "interests": "Interests",
+    "interestsValue": "Game Development, Writing"
   },
   "Skills": {
     "title": "Skills",

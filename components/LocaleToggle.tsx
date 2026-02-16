@@ -3,8 +3,7 @@
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useLocale } from 'next-intl';
 
-import GB from 'country-flag-icons/react/3x2/GB';
-import RU from 'country-flag-icons/react/3x2/RU';
+import { GB, RU } from 'country-flag-icons/react/3x2';
 
 const localeFlags: Record<string, React.ComponentType> = {
   en: GB,
