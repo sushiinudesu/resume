@@ -26,9 +26,9 @@ export default function MajorSkill({ skill, maxYears }: MajorSkillProps) {
           {skill.years} {skill.years === 1 ? t('year') : t('years')}
         </span>
       </div>
-      <div className="w-full bg-gray-200 dark:bg-zinc-700 rounded-full h-2.5">
+      <div className="w-full bg-[#f1ede9] dark:bg-[#353a4f] rounded-full h-2.5">
         <div
-          className="bg-[#d1b29d] dark:bg-[#d1b29d] h-2.5 rounded-full transition-all"
+          className="bg-[#d1b29d] dark:bg-[#ebf0f4] h-2.5 rounded-full transition-all"
           style={{ width: `${((skill.years || 0) / maxYears) * 100}%` }}
         ></div>
       </div>

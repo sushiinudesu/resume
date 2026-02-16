@@ -24,8 +24,8 @@
   "Skills": {
     "title": "Skills",
     "description": "Add your skills here. List your technical abilities, tools, and technologies you work with.",
-    "majorSkills": "Major Skills",
-    "minorSkills": "Minor Skills",
+    "majorSkills": "Main Skills",
+    "minorSkills": "Other Skills",
     "interestedSkills": "Interested In",
     "year": "year",
     "years": "years",
