@@ -55,6 +55,10 @@
     }
   },
   "Contact": {
-    "title": "Contact"
+    "title": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send message"
   }
 }
