@@ -12,6 +12,15 @@ const getFieldValue = (formData: FormData, fieldName: string): string => {
   return value.trim();
 };
 
+const escapeHtml = (value: string): string => {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+};
+
 export async function sendContactMessage(formData: FormData) {
   const name = getFieldValue(formData, 'name');
   const email = getFieldValue(formData, 'email');
@@ -38,6 +47,30 @@ export async function sendContactMessage(formData: FormData) {
     throw new Error('SMTP is not configured. Set SMTP_HOST, SMTP_USER, SMTP_PASS and SMTP_FROM.');
   }
 
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message).replace(/\n/g, '<br />');
+
+  const text = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+  const html = `
+    <div style="font-family: Arial, Helvetica, sans-serif; background: #f8fafc; padding: 24px; color: #0f172a;">
+      <div style="max-width: 620px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
+        <div style="padding: 16px 20px; background: #0f172a; color: #f8fafc;">
+          <h2 style="margin: 0; font-size: 18px;">New Resume Contact Message</h2>
+        </div>
+        <div style="padding: 20px;">
+          <p style="margin: 0 0 12px;"><strong>Name:</strong> ${safeName}</p>
+          <p style="margin: 0 0 12px;"><strong>Email:</strong> <a href="mailto:${safeEmail}" style="color: #2563eb; text-decoration: none;">${safeEmail}</a></p>
+          <div style="margin-top: 16px; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+            <p style="margin: 0 0 8px;"><strong>Message</strong></p>
+            <p style="margin: 0; line-height: 1.55;">${safeMessage}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
   const transporter = nodemailer.createTransport({
     host,
     port,
@@ -53,6 +86,7 @@ export async function sendContactMessage(formData: FormData) {
     to: process.env.SMTP_USER,
     replyTo: email,
     subject: `Resume contact form: ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+    text,
+    html,
   });
 }

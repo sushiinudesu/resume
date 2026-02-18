@@ -1,5 +1,31 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
+import { useFormStatus } from 'react-dom';
 import { sendContactMessage } from '@/actions/sendContactMessage';
+
+function SubmitButton({ label }: { label: string }) {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      type="submit"
+      disabled={pending}
+      className="cursor-pointer mt-2 self-start rounded-md bg-zinc-900 dark:bg-zinc-100 px-5 py-2 font-semibold text-zinc-100 dark:text-zinc-900 disabled:cursor-not-allowed disabled:opacity-70"
+      aria-busy={pending}
+    >
+      {pending ? (
+        <span className="inline-flex items-center gap-1" aria-label="Loading">
+          <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
+          <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse [animation-delay:120ms]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse [animation-delay:240ms]" />
+        </span>
+      ) : (
+        label
+      )}
+    </button>
+  );
+}
 
 export default function Contact() {
   const t = useTranslations('Contact');
@@ -18,7 +44,7 @@ export default function Contact() {
               name="name"
               type="text"
               required
-              className="rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 px-3 py-2 text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
+              className="rounded-md border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
 
@@ -31,7 +57,7 @@ export default function Contact() {
               name="email"
               type="email"
               required
-              className="rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 px-3 py-2 text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
+              className="rounded-md border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
 
@@ -44,16 +70,11 @@ export default function Contact() {
               name="message"
               rows={6}
               required
-              className="rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 px-3 py-2 text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
+              className="rounded-md border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
 
-          <button
-            type="submit"
-            className="mt-2 self-start rounded-md bg-zinc-900 dark:bg-zinc-100 px-5 py-2 font-semibold text-zinc-100 dark:text-zinc-900"
-          >
-            {t('submit')}
-          </button>
+          <SubmitButton label={t('submit')} />
         </form>
       </div>
     </section>
