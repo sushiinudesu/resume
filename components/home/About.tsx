@@ -16,38 +16,40 @@ export default function About() {
   const age = useAge(new Date(1994, 9, 31));
 
   const aboutItems = [
-    { label: t('location'), value: t('locationValue'), icon: 'location', flag: <BY title="Belarus" className="w-5 h-[15px] ml-2" /> },
+    { label: t('location'), value: t('locationValue'), icon: 'location', flag: <BY title="Belarus" className="w-5 h-3.75 ml-2" /> },
     { label: t('age'), value: age, icon: 'age' },
-    { label: t('nationality'), value: t('nationalityValue'), icon: 'nationality', flag: <BY title="Belarus" className="w-5 h-[15px] ml-2" /> },
+    { label: t('nationality'), value: t('nationalityValue'), icon: 'nationality', flag: <BY title="Belarus" className="w-5 h-3.75 ml-2" /> },
     { label: t('gender'), value: t('genderValue'), icon: 'gender' }
   ];
 
   const interests = { label: t('interests'), value: t('interestsValue'), icon: 'interests' };
   
   return (
-    <section id="about" className="flex flex-col items-center justify-center gap-6 px-4 py-8">
-      <div className="min-w-3xl max-w-5xl bg-white/50 dark:bg-zinc-900/50 px-8 py-12 rounded-lg">
-        <h2 className="text-3xl font-bold mb-6 text-black dark:text-zinc-50">{t('title')}</h2>
-        <div className="grid grid-cols-2 gap-x-12 gap-y-4">
+    <section id="about" className="flex flex-col items-center justify-center gap-6 px-4 py-6 xs:py-8">
+      <div className="w-full sm:max-w-2xl lg:max-w-3xl bg-white/50 dark:bg-zinc-900/50 px-5 sm:px-6 lg:px-7 py-12 rounded-lg">
+        <h2 className="text-2xl xs:text-3xl font-bold mb-6 text-black dark:text-zinc-50">{t('title')}</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-4">
           {aboutItems.map((item, index) => (
             <div key={index} className="flex justify-between items-center gap-3">
               <div className="flex items-center gap-2">
                 <span className="text-zinc-700 dark:text-zinc-300">{iconMap[item.icon]}</span>
-                <p className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{item.label}</p>
+                <p className="text-xs xs:text-sm font-semibold text-zinc-700 dark:text-zinc-300">{item.label}</p>
               </div>
               <div className="flex items-center">
-                <p className="text-base text-zinc-900 dark:text-zinc-100">{item.value}</p>
+                <p className={`text-sm xs:text-base text-zinc-900 dark:text-zinc-100 ${item.icon === 'location' ? 'max-2xs:text-right' : ''}`}>
+                  {item.value}
+                </p>
                 {item.flag && item.flag}
               </div>
             </div>
           ))}
-          <div className="col-span-2 flex justify-between items-center gap-3">
+          <div className="lg:col-span-2 flex justify-between items-center gap-3">
             <div className="flex items-center gap-2">
               <span className="text-zinc-700 dark:text-zinc-300">{iconMap[interests.icon]}</span>
-              <p className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">{interests.label}</p>
+              <p className="text-xs xs:text-sm font-semibold text-zinc-700 dark:text-zinc-300">{interests.label}</p>
             </div>
             <div className="flex items-center">
-              <p className="text-base text-zinc-900 dark:text-zinc-100">{interests.value}</p>
+              <p className="text-sm xs:text-base text-zinc-900 dark:text-zinc-100 max-2xs:text-right">{interests.value}</p>
             </div>
           </div>
         </div>

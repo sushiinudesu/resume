@@ -36,7 +36,7 @@ export default function PortfolioCompanyItem({
       : `https://${normalizedCompanyUrl}`);
 
   return (
-    <div className="mb-3 mt-2 rounded-md border border-zinc-200/80 dark:border-zinc-800/90 bg-zinc-50/70 dark:bg-zinc-900/70 px-4 py-3 text-center">
+    <div className="mb-3 mt-2 rounded-md max-2xs:rounded-none border border-zinc-200/80 dark:border-zinc-800/90 bg-rose-50/90 dark:bg-slate-800/90 px-4 py-3 text-center">
       <h3 className="text-lg font-bold tracking-wide text-zinc-800 dark:text-zinc-100">
         {href ? (
           <a href={href} target="_blank" rel="noopener noreferrer" className="hover:underline">

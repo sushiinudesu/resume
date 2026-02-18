@@ -18,6 +18,6 @@ export default function PortfolioProjectTech({ tech }: PortfolioProjectTechProps
   }
 
   return (
-    <p className="col-start-2 text-sm text-zinc-600 dark:text-zinc-400">{`${t('tech')}: ${projectTech.join(', ')}`}</p>
+    <p className="col-start-2 max-lg:col-start-1 max-lg:col-span-2 -col-end-1 text-sm text-zinc-600 dark:text-zinc-400">{`${t('tech')}: ${projectTech.join(', ')}`}</p>
   );
 }

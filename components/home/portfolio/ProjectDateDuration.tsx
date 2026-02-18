@@ -71,7 +71,7 @@ export default function ProjectDateDuration({
   }
 
   return (
-    <span className="text-sm text-zinc-600 dark:text-zinc-400 whitespace-nowrap">
+    <span className="text-sm text-zinc-600 dark:text-zinc-400">
       {start}{start && end ? ' - ' : ''}{end}{duration ? ` (${duration})` : ''}
     </span>
   );

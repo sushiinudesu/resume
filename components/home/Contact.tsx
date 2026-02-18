@@ -11,7 +11,7 @@ function SubmitButton({ label }: { label: string }) {
     <button
       type="submit"
       disabled={pending}
-      className="cursor-pointer mt-2 self-start rounded-md bg-zinc-900 dark:bg-zinc-100 px-5 py-2 font-semibold text-zinc-100 dark:text-zinc-900 disabled:cursor-not-allowed disabled:opacity-70"
+      className="cursor-pointer mt-2 self-start rounded-md bg-zinc-900 dark:bg-zinc-100 px-5 py-2 text-sm xs:text-base font-semibold text-zinc-100 dark:text-zinc-900 disabled:cursor-not-allowed disabled:opacity-70"
       aria-busy={pending}
     >
       {pending ? (
@@ -31,12 +31,12 @@ export default function Contact() {
   const t = useTranslations('Contact');
   
   return (
-    <section id="contact" className="flex flex-col items-center justify-center gap-6 px-4 py-8">
-      <div className="w-full max-w-4xl bg-white/50 dark:bg-zinc-900/50 px-8 py-12 rounded-lg">
-        <h2 className="text-3xl font-bold mb-6 text-black dark:text-zinc-50">{t('title')}</h2>
+    <section id="contact" className="flex flex-col items-center justify-center gap-6 px-3 py-6 xs:px-4 xs:py-8">
+      <div className="w-full max-w-4xl bg-white/50 dark:bg-zinc-900/50 px-4 py-8 2xs:px-6 2xs:py-10 xs:px-8 xs:py-12 rounded-lg">
+        <h2 className="text-2xl xs:text-3xl font-bold mb-6 text-black dark:text-zinc-50">{t('title')}</h2>
         <form action={sendContactMessage} className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+            <label htmlFor="name" className="text-xs xs:text-sm font-semibold text-zinc-700 dark:text-zinc-300">
               {t('name')}
             </label>
             <input
@@ -44,12 +44,12 @@ export default function Contact() {
               name="name"
               type="text"
               required
-              className="rounded-md border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
+              className="rounded-md border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-sm xs:text-base text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+            <label htmlFor="email" className="text-xs xs:text-sm font-semibold text-zinc-700 dark:text-zinc-300">
               {t('email')}
             </label>
             <input
@@ -57,12 +57,12 @@ export default function Contact() {
               name="email"
               type="email"
               required
-              className="rounded-md border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
+              className="rounded-md border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-sm xs:text-base text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+            <label htmlFor="message" className="text-xs xs:text-sm font-semibold text-zinc-700 dark:text-zinc-300">
               {t('message')}
             </label>
             <textarea
@@ -70,7 +70,7 @@ export default function Contact() {
               name="message"
               rows={6}
               required
-              className="rounded-md border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
+              className="rounded-md border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-sm xs:text-base text-zinc-900 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
 

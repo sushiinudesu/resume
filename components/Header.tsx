@@ -16,9 +16,9 @@ export default function Header() {
   const t = useTranslations('Header');
 
   return (
-    <header className="sticky top-0 z-50 w-full shadow bg-[#f2eee8] dark:bg-[#d9dfec]">
+    <header className="sticky top-0 z-50 h-15 w-full shadow bg-[#f2eee8] dark:bg-[#d9dfec]">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-center items-center">
-        <nav>
+        <nav className="max-sm:hidden">
           <ul className="flex gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
