@@ -23,7 +23,6 @@
   },
   "Skills": {
     "title": "Skills",
-    "description": "Add your skills here. List your technical abilities, tools, and technologies you work with.",
     "majorSkills": "Main Skills",
     "minorSkills": "Other Skills",
     "interestedSkills": "Interested In",
@@ -34,10 +33,28 @@
   },
   "Portfolio": {
     "title": "Portfolio",
-    "description": "Showcase your projects here. Add descriptions, images, and links to your best work."
+    "role": "Role",
+    "tech": "Tech",
+    "location": "Location",
+    "durationYears": "{count, plural, one {# year} other {# years}}",
+    "durationMonths": "{count, plural, one {# month} other {# months}}",
+    "durationLessThanMonth": "less than a month",
+    "roleValues": {
+      "junior": "Junior",
+      "middle": "Middle",
+      "senior": "Senior"
+    },
+    "projectRoleValues": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "fullstack": "Full Stack"
+    },
+    "locationValues": {
+      "remote": "Remote",
+      "onsite": "Onsite"
+    }
   },
   "Contact": {
-    "title": "Contact",
-    "description": "Add your contact information here. Include ways for people to reach out to you."
+    "title": "Contact"
   }
 }

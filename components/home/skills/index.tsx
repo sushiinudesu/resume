@@ -1,14 +1,14 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useSkills } from '@/hooks/useSkills';
+import { useFirebaseData } from '@/providers/FirebaseProvider';
 import MajorSkill from './MajorSkill';
 import MinorSkill from './MinorSkill';
 import InterestedSkill from './InterestedSkill';
 
 export default function Skills() {
   const t = useTranslations('Skills');
-  const { skills, loading, error } = useSkills();
+  const { skills: { skills, loading, error } } = useFirebaseData();
 
   if (loading) {
     return (

@@ -23,7 +23,6 @@
   },
   "Skills": {
     "title": "Навыки",
-    "description": "Добавьте свои навыки здесь. Перечислите технические способности, инструменты и технологии, с которыми вы работаете.",
     "majorSkills": "Основные навыки",
     "minorSkills": "Дополнительные навыки",
     "interestedSkills": "Интересуюсь",
@@ -34,10 +33,28 @@
   },
   "Portfolio": {
     "title": "Портфолио",
-    "description": "Продемонстрируйте свои проекты здесь. Добавьте описания, изображения и ссылки на вашу лучшую работу."
+    "role": "Роль",
+    "tech": "Технологии",
+    "location": "Локация",
+    "durationYears": "{count, plural, one {# год} few {# года} many {# лет} other {# года}}",
+    "durationMonths": "{count, plural, one {# месяц} few {# месяца} many {# месяцев} other {# месяца}}",
+    "durationLessThanMonth": "меньше месяца",
+    "roleValues": {
+      "junior": "Junior",
+      "middle": "Middle",
+      "senior": "Senior"
+    },
+    "projectRoleValues": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "fullstack": "Full Stack"
+    },
+    "locationValues": {
+      "remote": "Удаленно",
+      "onsite": "Офис"
+    }
   },
   "Contact": {
-    "title": "Контакты",
-    "description": "Добавьте свою контактную информацию здесь. Укажите способы, как с вами можно связаться."
+    "title": "Контакты"
   }
 }

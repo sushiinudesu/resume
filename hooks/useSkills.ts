@@ -1,5 +1,6 @@
 import { collection } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useMemo } from "react";
 
 import { firestore } from "@/lib/firebase";
 
@@ -16,6 +17,10 @@ export function useSkills() {
     id: doc.id,
     ...doc.data(),
   } as Skill)) ?? [];
+  const skillById = useMemo(
+    () => new Map(skillsCollection.map((skill) => [skill.id, skill])),
+    [skillsCollection]
+  );
 
   const skills = skillsCollection.reduce(
     (acc, skill) => {
@@ -31,8 +36,11 @@ export function useSkills() {
     { major: [] as Skill[], minor: [] as Skill[], interested: [] as Skill[] }
   );
 
+  const getSkill = (id: string) => skillById.get(id);
+
   return { 
     skills,
+    getSkill,
     loading, 
     error: error ?? null,
   };
