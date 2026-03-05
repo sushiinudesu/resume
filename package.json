@@ -19,7 +19,9 @@
     "nodemailer": "^8.0.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-firebase-hooks": "^5.1.1"
+    "react-firebase-hooks": "^5.1.1",
+    "react-schemaorg": "^2.0.1",
+    "schema-dts": "^1.1.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

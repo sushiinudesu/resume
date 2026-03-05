@@ -7,10 +7,12 @@ import Portfolio from "@/components/home/portfolio";
 import Contact from "@/components/home/Contact";
 import FloatingNavButtons from "@/components/home/FloatingNavButtons";
 import { FirebaseProvider } from "@/providers/FirebaseProvider";
+import Schema from "@/components/Schema";
 
 export default function Home() {
   return (
     <>
+      <Schema />
       <Header />
       <main>
         <FloatingNavButtons />

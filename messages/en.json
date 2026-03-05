@@ -2,7 +2,9 @@
   "Metadata": {
     "title": "Aleks Kavaliou — Full Stack Software Engineer",
     "description": "Portfolio of Aleks Kavaliou, a Full Stack Software Engineer specializing in React and modern web development.",
-    "siteName": "Aleks Kavaliou Portfolio"
+    "siteName": "Aleks Kavaliou Portfolio",
+    "name": "Aleks Kavaliou",
+    "jobTitle": "Full Stack Software Engineer"
   },
   "Header": {
     "about": "About",
