@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useFormStatus } from 'react-dom';
+import { track } from '@vercel/analytics';
 import { sendContactMessage } from '@/actions/sendContactMessage';
 
 function SubmitButton({ label, disabled }: { label: string; disabled: boolean }) {
@@ -32,12 +33,47 @@ function SubmitButton({ label, disabled }: { label: string; disabled: boolean })
 export default function Contact() {
   const t = useTranslations('Contact');
   const formRef = useRef<HTMLFormElement>(null);
+  const hasTrackedStartRef = useRef(false);
   const [isFormValid, setIsFormValid] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
 
   const validateForm = () => {
     const form = formRef.current;
     if (!form) return;
     setIsFormValid(form.checkValidity());
+  };
+
+  const onFormInteract = () => {
+    validateForm();
+
+    if (!hasTrackedStartRef.current) {
+      track('contact_form_started');
+      hasTrackedStartRef.current = true;
+    }
+  };
+
+  const onSubmit = async (formData: FormData) => {
+    if (!hasTrackedStartRef.current) {
+      track('contact_form_started');
+      hasTrackedStartRef.current = true;
+    }
+
+    setSubmitStatus(null);
+    const startedAt = Date.now();
+    track('contact_form_submit');
+
+    try {
+      await sendContactMessage(formData);
+      track('contact_form_success', { durationMs: Date.now() - startedAt });
+      setSubmitStatus('success');
+      formRef.current?.reset();
+      setIsFormValid(false);
+      hasTrackedStartRef.current = false;
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'unknown_error';
+      track('contact_form_error', { message: errorMessage });
+      setSubmitStatus('error');
+    }
   };
   
   return (
@@ -46,10 +82,10 @@ export default function Contact() {
         <h2 className="text-2xl xs:text-3xl font-bold mb-6 text-black dark:text-zinc-50">{t('title')}</h2>
         <form
           ref={formRef}
-          action={sendContactMessage}
+          action={onSubmit}
           className="flex flex-col gap-4"
-          onInput={validateForm}
-          onChange={validateForm}
+          onInput={onFormInteract}
+          onChange={onFormInteract}
         >
           <div className="flex flex-col gap-2">
             <label htmlFor="name" className="text-xs xs:text-sm font-semibold text-zinc-700 dark:text-zinc-300">
@@ -91,6 +127,14 @@ export default function Contact() {
           </div>
 
           <SubmitButton label={t('submit')} disabled={!isFormValid} />
+          {submitStatus ? (
+            <p
+              className={`text-xs xs:text-sm ${submitStatus === 'success' ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-700 dark:text-red-400'}`}
+              aria-live="polite"
+            >
+              {submitStatus === 'success' ? t('success') : t('error')}
+            </p>
+          ) : null}
         </form>
       </div>
     </section>

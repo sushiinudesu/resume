@@ -69,6 +69,8 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "submit": "Send message"
+    "submit": "Send message",
+    "success": "Message sent successfully.",
+    "error": "Failed to send message. Please try again."
   }
 }
