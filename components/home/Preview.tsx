@@ -1,22 +1,23 @@
 import { useTranslations } from 'next-intl';
 import { Globe, Github, Linkedin } from 'lucide-react';
+import { GITHUB_PROFILE_URL, LINKEDIN_PROFILE_URL, WEBSITE_URL } from '@/lib/socialProfiles';
 
 const SOCIAL_LINKS = [
   {
     name: 'Website',
-    url: 'https://resume-sushiinudesu.vercel.app/',
+    url: WEBSITE_URL,
     icon: Globe,
     label: 'Personal website'
   },
   {
     name: 'GitHub',
-    url: 'https://github.com/sushiinudesu',
+    url: GITHUB_PROFILE_URL,
     icon: Github,
     label: 'GitHub'
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/sushiinudesu',
+    url: LINKEDIN_PROFILE_URL,
     icon: Linkedin,
     label: 'LinkedIn'
   }

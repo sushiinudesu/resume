@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GITHUB_PROFILE_URL, getGitHubAvatarUrl } from '@/lib/socialProfiles';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,6 +21,8 @@ const geistMono = Geist_Mono({
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+
+const socialPreviewImage = getGitHubAvatarUrl(GITHUB_PROFILE_URL);
 
 export async function generateMetadata({
   params,
@@ -53,6 +56,7 @@ export async function generateMetadata({
       url: pathname,
       siteName: t('siteName'),
       type: 'website',
+      images: socialPreviewImage ? [{ url: socialPreviewImage }] : undefined,
       locale: locale === 'ru' ? 'ru_RU' : 'en_US',
       alternateLocale: locale === 'ru' ? ['en_US'] : ['ru_RU'],
     },
@@ -60,6 +64,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
+      images: socialPreviewImage ? [socialPreviewImage] : undefined,
     },
   };
 }
