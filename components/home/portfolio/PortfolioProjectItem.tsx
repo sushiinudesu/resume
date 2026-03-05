@@ -45,7 +45,7 @@ export default function PortfolioProjectItem({
           </div>
         </div>
 
-        <div className="mt-2 flex justify-end lg:mt-0 lg:absolute lg:left-full lg:top-1 lg:ml-3">
+        <div className="mt-2 flex justify-end max-lg:pr-2 lg:mt-0 lg:absolute lg:left-full lg:top-1 lg:ml-3">
           <ProjectFireReaction projectId={project.id} initialLikes={project.likes ?? 0} />
         </div>
       </div>
