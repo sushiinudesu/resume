@@ -34,6 +34,9 @@
   "Portfolio": {
     "title": "Portfolio",
     "role": "Role",
+    "reactWithFire": "Fire",
+    "alreadyLiked": "Fired",
+    "fireCount": "{count, plural, one {# fire} other {# fires}}",
     "tech": "Tech",
     "location": "Location",
     "durationYears": "{count, plural, one {# year} other {# years}}",

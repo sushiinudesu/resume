@@ -9,6 +9,7 @@ export type Project = {
   id: string;
   endAt: Date;
   icon?: string;
+  likes?: number;
   role: ProjectRole;
   startAt: Date;
   tech: string[];

@@ -34,6 +34,9 @@
   "Portfolio": {
     "title": "Портфолио",
     "role": "Роль",
+    "reactWithFire": "Огонь",
+    "alreadyLiked": "Огнено",
+    "fireCount": "{count, plural, one {# огонь} few {# огня} many {# огней} other {# огня}}",
     "tech": "Технологии",
     "location": "Локация",
     "durationYears": "{count, plural, one {# год} few {# года} many {# лет} other {# года}}",
