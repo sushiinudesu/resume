@@ -7,15 +7,21 @@ const siteUrl =
 
 const baseUrl = siteUrl.endsWith('/') ? siteUrl.slice(0, -1) : siteUrl;
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+const configuredLastModified =
+  process.env.NEXT_PUBLIC_SITEMAP_LASTMOD ?? process.env.VERCEL_GIT_COMMIT_DATE;
 
+const parsedLastModified =
+  configuredLastModified && !Number.isNaN(Date.parse(configuredLastModified))
+    ? new Date(configuredLastModified)
+    : undefined;
+
+export default function sitemap(): MetadataRoute.Sitemap {
   return routing.locales.map((locale) => {
     const pathname = locale === routing.defaultLocale ? '' : `/${locale}`;
 
     return {
       url: `${baseUrl}${pathname}`,
-      lastModified: now,
+      ...(parsedLastModified ? { lastModified: parsedLastModified } : {}),
       changeFrequency: 'monthly',
       priority: locale === routing.defaultLocale ? 1 : 0.9,
       alternates: {
