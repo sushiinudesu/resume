@@ -2,6 +2,7 @@
 
 import { Flame } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { track } from '@vercel/analytics';
 import { KeyboardEvent, useEffect, useMemo, useState, useTransition } from 'react';
 
 import { likeProject } from '@/actions/likeProject';
@@ -78,6 +79,7 @@ export default function ProjectFireReaction({ projectId, initialLikes }: Project
     setIsLiked(true);
     setLikes((current) => current + 1);
     markProjectAsLiked(projectId);
+    track('project_liked', { projectId });
 
     startTransition(async () => {
       try {
