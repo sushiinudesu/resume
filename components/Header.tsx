@@ -22,6 +22,26 @@ export default function Header() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
+  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith('#')) {
+      closeMenu();
+      return;
+    }
+
+    const sectionId = href.slice(1);
+    const sectionElement = document.getElementById(sectionId);
+
+    if (!sectionElement) {
+      closeMenu();
+      return;
+    }
+
+    event.preventDefault();
+    sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.history.replaceState(null, '', href);
+    closeMenu();
+  };
+
   useEffect(() => {
     if (!isMenuOpen) {
       return;
@@ -78,6 +98,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  onClick={(event) => handleNavClick(event, link.href)}
                   className="text-lg font-semibold text-gray-600 dark:text-gray-700 hover:text-gray-900 dark:hover:text-gray-400 transition"
                 >
                   {t(link.key)}
@@ -103,7 +124,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  onClick={closeMenu}
+                  onClick={(event) => handleNavClick(event, link.href)}
                   className="block px-4 py-2 text-base font-semibold text-gray-600 dark:text-gray-700 hover:text-gray-900 dark:hover:text-gray-400 transition"
                 >
                   {t(link.key)}
