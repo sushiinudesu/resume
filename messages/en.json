@@ -72,5 +72,10 @@
     "submit": "Send message",
     "success": "Message sent successfully.",
     "error": "Failed to send message. Please try again."
+  },
+  "Footer": {
+    "viewSourceCodeOnGitHub": "View source code on GitHub",
+    "madeWithReactHostedByVercel": "Made with React · Hosted by Vercel",
+    "copyright": "© {year}"
   }
 }

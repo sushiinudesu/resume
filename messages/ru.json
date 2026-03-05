@@ -72,5 +72,10 @@
     "submit": "Отправить сообщение",
     "success": "Сообщение успешно отправлено.",
     "error": "Не удалось отправить сообщение. Попробуйте еще раз."
+  },
+  "Footer": {
+    "viewSourceCodeOnGitHub": "Посмотреть исходный код на GitHub",
+    "madeWithReactHostedByVercel": "Сделано на React · Размещено на Vercel",
+    "copyright": "© {year}"
   }
 }
