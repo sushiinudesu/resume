@@ -2,10 +2,10 @@ import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
-import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GITHUB_PROFILE_URL, getGitHubAvatarUrl } from '@/lib/socialProfiles';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -99,7 +99,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
-        <Analytics />
+        <GoogleAnalytics />
       </body>
     </html>
   );

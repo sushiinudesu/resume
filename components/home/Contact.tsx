@@ -3,8 +3,8 @@
 import { useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useFormStatus } from 'react-dom';
-import { track } from '@vercel/analytics';
 import { sendContactMessage } from '@/actions/sendContactMessage';
+import { trackEvent } from '@/lib/gtag';
 
 function SubmitButton({ label, disabled }: { label: string; disabled: boolean }) {
   const { pending } = useFormStatus();
@@ -47,31 +47,31 @@ export default function Contact() {
     validateForm();
 
     if (!hasTrackedStartRef.current) {
-      track('contact_form_started');
+      trackEvent('contact_form_started');
       hasTrackedStartRef.current = true;
     }
   };
 
   const onSubmit = async (formData: FormData) => {
     if (!hasTrackedStartRef.current) {
-      track('contact_form_started');
+      trackEvent('contact_form_started');
       hasTrackedStartRef.current = true;
     }
 
     setSubmitStatus(null);
     const startedAt = Date.now();
-    track('contact_form_submit');
+    trackEvent('contact_form_submit');
 
     try {
       await sendContactMessage(formData);
-      track('contact_form_success', { durationMs: Date.now() - startedAt });
+      trackEvent('contact_form_success', { durationMs: Date.now() - startedAt });
       setSubmitStatus('success');
       formRef.current?.reset();
       setIsFormValid(false);
       hasTrackedStartRef.current = false;
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'unknown_error';
-      track('contact_form_error', { message: errorMessage });
+      trackEvent('contact_form_error', { message: errorMessage });
       setSubmitStatus('error');
     }
   };
