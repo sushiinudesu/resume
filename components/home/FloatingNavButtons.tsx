@@ -60,13 +60,13 @@ export default function FloatingNavButtons() {
   };
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-40">
+    <div className="pointer-events-none fixed inset-0 z-60">
       {!isPreviewVisible && (
         <button
           type="button"
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="pointer-events-auto absolute left-1/2 top-19 -translate-x-1/2 rounded-lg bg-white/70 p-3 text-zinc-800 shadow transition hover:bg-white dark:bg-zinc-900/70 dark:text-zinc-100 dark:hover:bg-zinc-900 lg:left-4 lg:translate-x-0"
+          className="pointer-events-auto absolute left-1/2 top-15 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white/70 p-3 text-zinc-800 shadow transition hover:bg-white dark:bg-zinc-900/70 dark:text-zinc-100 dark:hover:bg-zinc-900 sm:top-19 sm:translate-y-0 lg:left-4 lg:translate-x-0"
         >
           <ArrowUp size={20} />
         </button>
